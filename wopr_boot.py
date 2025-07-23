@@ -1,4 +1,6 @@
 import time
+from rich.console import Console
+import time
 
 print("WOPR SYSTEM BOOT SEQUENCE")
 time.sleep(1)
@@ -18,3 +20,16 @@ while True:
         break
     else:
         print("UNKNOWN COMMAND")
+        
+console = Console()
+
+def boot_sequence():
+    console.print("[bold cyan]WOPR SYSTEM BOOT SEQUENCE[/bold cyan]")
+    time.sleep(1)
+    console.print("Loading core modules...")
+    time.sleep(1)
+    console.print("Initializing thermal logic array...")
+    time.sleep(1)
+    console.print("[bold green]Hello Professor Falken.[/bold green]")
+
+boot_sequence()
