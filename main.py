@@ -1,5 +1,6 @@
 from rich.prompt import Prompt
 from rich.console import Console
+import os
 
 from games.tictactoe import start_game as tictactoe_game
 from games.global_thermonuclear_war import start_game as gtw_game
@@ -21,9 +22,9 @@ def main_menu():
             console.print("LOGON not implemented yet.")
         elif choice == "2":
             console.print("HELP GAMES not implemented yet.")
-        elif choice == "3":
+        elif choice == "3": os.system("clear")
             console.print("Available Games:\n- Tic Tac Toe\n- Global Thermonuclear War")
-        elif choice == "4":
+        elif choice == "4": os.system("clear")
             gtw_game()
         elif choice == "5":
             console.print("Exiting WOPR Terminal.")
