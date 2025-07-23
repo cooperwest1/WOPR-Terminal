@@ -18,7 +18,8 @@ def main_menu():
     elif choice == "2":
         console.print("HELP GAMES not implemented yet.")
     elif choice == "3":
-        console.print("TIC TAC TOE\nGLOBAL THERMONUCLEAR WAR")
+    from games.tictactoe import start_game
+    start_game()
     elif choice == "4":
         from games.global_thermonuclear_war import start_game
         start_game()
