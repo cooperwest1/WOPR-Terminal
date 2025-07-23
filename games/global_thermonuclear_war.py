@@ -1,33 +1,42 @@
-import time
 from rich.console import Console
+import time
+import random
 
 console = Console()
 
 def start_game():
-    console.print("[bold red]GLOBAL THERMONUCLEAR WAR SIMULATION INITIATED[/bold red]")
-    time.sleep(1)
-    regions = ["USA", "SOVIET UNION", "CHINA", "FRANCE", "UNITED KINGDOM", "NORTH KOREA", "ISRAEL", "IRAN"]
+    console.print("[bold red]\nInitializing Global Thermonuclear War Simulation...[/bold red]")
+    time.sleep(1.5)
+
+    countries = ["USA", "USSR", "China", "France", "UK"]
+    targets = ["military base", "missile silo", "airfield", "submarine fleet", "command center"]
     
-    console.print("\nSelect target region:")
-    for i, region in enumerate(regions, start=1):
-        console.print(f"{i}. {region}")
+    selected_enemy = random.choice([c for c in countries if c != "USA"])
+    console.print(f"\nEnemy Identified: [bold yellow]{selected_enemy}[/bold yellow]")
+    time.sleep(1.2)
 
-    try:
-        choice = int(console.input("\n> "))
-        if 1 <= choice <= len(regions):
-            selected = regions[choice - 1]
-            simulate_strike(selected)
-        else:
-            console.print("[red]Invalid region selection[/red]")
-    except ValueError:
-        console.print("[red]Invalid input[/red]")
+    console.print("\nPreparing first strike options...")
+    time.sleep(1.2)
 
-def simulate_strike(region):
-    console.print(f"\n[bold yellow]Target Locked: {region}[/bold yellow]")
+    for i in range(1, 4):
+        target = random.choice(targets)
+        location = f"Sector {random.randint(1, 99)}"
+        console.print(f"[cyan]Option {i}: Launch at {target} in {location}[/cyan]")
+        time.sleep(0.8)
+
+    console.print("\n[bold green]Launch Option Selected...[/bold green]")
     time.sleep(1)
-    console.print("Launching missiles...")
-    for i in range(3):
-        time.sleep(1)
-        console.print(f"Missile {i+1} launched...")
-    console.print(f"\n[bold red]{region} has been obliterated.[/bold red]")
-    console.print("[green]Would you like to play a game?[/green]")
+    console.print("[red]Launching missiles...[/red]")
+    for i in range(5):
+        console.print(f"[yellow]>> Missile {i+1} en route...[/yellow]")
+        time.sleep(0.6)
+
+    console.print("\n[bold red]Impact detected.[/bold red] Damage assessment underway...")
+    time.sleep(1.5)
+
+    casualties = random.randint(1_000_000, 200_000_000)
+    console.print(f"[bold red]Estimated casualties: {casualties:,}[/bold red]")
+    time.sleep(2)
+
+    console.print("\n[green]Simulation complete. Returning to main menu...[/green]")
+    time.sleep(2)
