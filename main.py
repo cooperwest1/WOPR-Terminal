@@ -1,7 +1,9 @@
-
-from rich.console import Console
 from rich.prompt import Prompt
+from rich.console import Console
 import time
+
+from games.tictactoe import start_game
+from games import global_thermonuclear_war
 
 console = Console()
 
@@ -13,16 +15,15 @@ def main_menu():
     console.print("4. GLOBAL THERMONUCLEAR WAR\n")
 
     choice = Prompt.ask("Select an option")
+
     if choice == "1":
         console.print("LOGON not implemented yet.")
     elif choice == "2":
         console.print("HELP GAMES not implemented yet.")
     elif choice == "3":
-    from games.tictactoe import start_game
-    start_game()
-    elif choice == "4":
-        from games.global_thermonuclear_war import start_game
         start_game()
+    elif choice == "4":
+        global_thermonuclear_war.start_game()
     else:
         console.print("[red]Invalid option[/red]")
 
